@@ -16,8 +16,34 @@ The project has a makefile in order to compile the library, the Test file, the S
 #### the library contains 4 files :
 
 - mini_string.c
+
+  - mini_printf
+  - mini_scanf
+  - mini_exit_string
+  - mini_strlen
+  - mini_strcpy
+  - mini_strcmp
+  - stringToInt (ATOI)
+  - intToString (ITOA)
+  - mini_perror
+  
 - mini_memory.c
+
+  - mini_calloc
+  - mini_free
+  - mini_exit
+ 
 - mini_io.c
+  
+  - mini_fopen
+  - mini_fread
+  - mini_fwrite
+  - mini_fflush
+  - mini_fclose
+  - mini_exit_io
+  - mini_fgetc
+  - mini_fputc
+  
 - mini_lib.h
 
 ###### The SHELL and the system commands use only this library !!
@@ -38,10 +64,6 @@ The project has a makefile in order to compile the library, the Test file, the S
 
 #### SHELL File : 
 - shell.c
-
-
-
-
 
 
 
