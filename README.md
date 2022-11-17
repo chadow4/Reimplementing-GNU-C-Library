@@ -69,7 +69,7 @@ The project has a makefile in order to compile the library, the Test file, the S
 
 ### COMMANDS : 
 - Compile the SHELL file and run it: ```make mini_shell``` then enter ```./mini_shell``` in order to execute it.
--  Compile the Test file and run it: : ```make``` then enter ```./TP1``` in order to execute it.
+-  Compile the Test file and run it: : ```make``` then enter ```./TEST``` in order to execute it.
 -  Compile the mini_touch command and run it:: ```make mini_touch ``` then enter ```./mini_touch votreFichier``` in order to execute it.
 -  Compile the mini_cp command and run it: ```make mini_cp ``` then enter ```./mini_cp fichier1 fichier2``` in order to execute it.
 -  Compile the mini_echo command and run it:  : ```make mini_echo ``` then enter ```./mini_echo votre texte``` in order to execute it.
