@@ -5,9 +5,17 @@
 
 int main(int argc, char **argv){
 
+    if(argc != 4){
+        mini_printf("Error number of arguments\n");
+        return -1;
+    }
+
     char* reader = mini_calloc(sizeof(char), 5000);
     
     MYFILE* file = mini_fopen(argv[3], 'r');
+    if(file == NULL){
+        return -1;
+    }
     mini_fread(reader, sizeof(char), 5000, file);
 
     char* buffer = mini_calloc(sizeof(char), 5000);

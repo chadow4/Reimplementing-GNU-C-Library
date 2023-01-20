@@ -5,7 +5,15 @@
 
 int main(int argc, char **argv) {
 
+    if(argc !=2){
+        mini_printf("Error number of arguments\n");
+        return -1;
+    }
+
     MYFILE *wcFile = mini_fopen(argv[1], 'r');
+    if(wcFile == NULL){
+        return -1;
+    }
     char *reader = mini_calloc(sizeof(char), BUFFER_SIZE);
     mini_fread(reader, sizeof(char), BUFFER_SIZE, wcFile);
     int nb = 1;

@@ -2,20 +2,27 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <stdio.h>
 
 int parseParams(char *command, char *args[]) {
     int argLen = 0;
     int argCount = 0;
-    for(int i =0; i<mini_strlen(command); i++){
-        if(command[i] == ' ' || command[i]== '\n'){
+    args[argCount] = mini_calloc(sizeof(char),1024);
+    for (int i = 0; i < mini_strlen(command); i++) {
+        if (command[i] == ' ') {
+            args[argCount + 1] = mini_calloc(sizeof(char), 1024);
             args[argCount][argLen] = '\0';
             argCount++;
-            argLen=0;
-        }
-        else{
+            argLen = 0;
+        } else if (command[i] == '\n') {
+            args[argCount][argLen] = '\0';
+            args[argCount+1] = NULL;
+            return argCount;
+        } else {
             args[argCount][argLen] = command[i];
             argLen++;
         }
+
     }
 
     return argCount;
@@ -43,40 +50,33 @@ void exec(char *commands[]) {
     }
 }
 
-int main(void){
+int main(void) {
 
 
-    while(1){
-        write(1," $ ",3);
-        char * buffer = mini_calloc(sizeof(char),1024);
-        mini_scanf(buffer,1024);
-        char **newBuffer = mini_calloc(sizeof(char*),1024);
-        for (int i = 0; i < 10; i++)
-        {
-            newBuffer[i] = mini_calloc(sizeof(char),50);
-        }
-        
+    while (1) {
+        write(1, " $ ", 3);
+        char *buffer = mini_calloc(sizeof(char), 1024);
+        mini_scanf(buffer, 1024);
+        char **newBuffer = mini_calloc(sizeof(char *), 10);
 
-        int countArg = parseParams(buffer,newBuffer);
+        int countArg = parseParams(buffer, newBuffer);
 
-        if(countArg == 0){
+        if (countArg == 0) {
             continue;
         }
 
         exec(newBuffer);
 
-        for (int i = 0; i < countArg; i++)
-        {
+        for (int i = 0; i < countArg; i++) {
             mini_free(newBuffer[i]);
         }
-        
+
         mini_free(buffer);
 
 
-        
     }
-  
-   
+
+
     return 0;
 
 

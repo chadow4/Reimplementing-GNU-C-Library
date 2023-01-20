@@ -5,9 +5,17 @@
 
 int main(int argc, char **argv) {
 
+    if(argc !=4){
+        mini_printf("Error number of arguments\n");
+        return -1;
+    }
+
     char *reader = mini_calloc(sizeof(char), BUF_SIZE);
 
     MYFILE *file = mini_fopen(argv[3], 'r');
+    if(file == NULL){
+        return -1;
+    }
     mini_fread(reader, sizeof(char), BUF_SIZE, file);
     char *buffer = mini_calloc(sizeof(char), BUF_SIZE);
     int nb = 0;
@@ -27,7 +35,5 @@ int main(int argc, char **argv) {
 
     mini_printf(buffer);
 
-    mini_exit();
-    
     return 0;
 }

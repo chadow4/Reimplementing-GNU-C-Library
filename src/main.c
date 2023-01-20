@@ -62,9 +62,14 @@ int main(int arc, char **argv) {
     /* Test open, read , write files */
 
 
-    MYFILE *readFile = mini_fopen("./testFiles/readFile.txt", 'r');
-    MYFILE *writeFile = mini_fopen("./testFiles/writeFile.txt", 'w');
-
+    MYFILE *readFile = mini_fopen("src/testFiles/readFile.txt", 'r');
+    if(readFile == NULL){
+        return -1;
+    }
+    MYFILE *writeFile = mini_fopen("src/testFiles/writeFile.txt", 'w');
+    if(writeFile == NULL){
+        return -1;
+    }
 
     char *buff = mini_calloc(sizeof(char), 50);
     char *helloWorld = "jecrisDansMonFichier";
@@ -87,8 +92,14 @@ int main(int arc, char **argv) {
 
 #endif
 
-    MYFILE *getcFile = mini_fopen("./testFiles/getc.txt", 'r');
-    MYFILE *putcFile = mini_fopen("./testFiles/putc.txt", 'w');
+    MYFILE *getcFile = mini_fopen("src/testFiles/getc.txt", 'r');
+    if(getcFile == NULL){
+        return -1;
+    }
+    MYFILE *putcFile = mini_fopen("src/testFiles/putc.txt", 'w');
+    if(putcFile == NULL){
+        return -1;
+    }
     char *test = mini_calloc(sizeof(char),2);
     *(test) = mini_fgetc(getcFile);
 

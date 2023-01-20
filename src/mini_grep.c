@@ -15,10 +15,18 @@ int compare_char(char* first, char* second){
 
 int main (int argc, char **argv){
 
+    if(argc !=3){
+        mini_printf("Error number of arguments\n");
+        return -1;
+    }
+
     char* buffer = mini_calloc(sizeof(char), BUF_SIZE);
     char* reader = mini_calloc(sizeof(char), BUF_SIZE);
     
     MYFILE* file = mini_fopen(argv[2], 'r');
+    if(file == NULL){
+        return -1;
+    }
     mini_fread(reader, sizeof(char), BUF_SIZE, file);
 
     int ind_buffer = 0;
@@ -53,7 +61,5 @@ int main (int argc, char **argv){
             break;
         }
     }
-    
-    mini_exit();
     return 0;
 }

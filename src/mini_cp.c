@@ -10,18 +10,20 @@ int main(int argc, char **argv){
     char buf[BUF_SIZE];
 
     if(argc != 3){
-        mini_printf("Erreur d'arguments");
+        mini_printf("Invalid number of arguments\n");
+        return -1;
     }
-
 
     src = mini_fopen(argv[1], 'r');
 
-    if (NULL == src) mini_exit();
+    if (src == NULL){
+        return -1;
+    }
 
     dst = mini_fopen(argv[2], 'w');
 
-    if (dst < 0){
-        mini_exit();
+    if (dst == NULL){
+        return -1;
     }
 
     while (1) {

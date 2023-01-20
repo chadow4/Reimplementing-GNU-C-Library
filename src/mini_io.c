@@ -33,6 +33,10 @@ MYFILE *mini_fopen(char *file, char mode) {
             break;
 
     }
+    if (fd == -1) {
+        mini_printf("Error opening File\n");
+        return NULL;
+    }
 
     MYFILE *myfile;
 
@@ -86,7 +90,7 @@ static void affect0Buffer(char *buffer) {
 */
 
 int mini_fread(void *buffer, int size_element, int number_element, MYFILE *file) {
-    
+
     /* gestion d'erreurs */
 
     if (file->ind_read == -1) {
