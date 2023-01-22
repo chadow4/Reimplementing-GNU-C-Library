@@ -49,6 +49,8 @@ extern int mini_strlen(char *s);
 
 extern int mini_strcmp(char *s1, char *s2);
 
+extern int mini_strncmp(char *s1, char *s2, int n);
+
 extern char *mini_strcat(char *dest, char *src, int n);
 
 extern struct my_file *mini_fopen(char *file, char mode);

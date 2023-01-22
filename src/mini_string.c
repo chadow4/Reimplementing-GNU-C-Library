@@ -131,6 +131,19 @@ int mini_strcmp(char *s1, char *s2) {
     return 0;
 }
 
+int mini_strncmp(char *s1,char *s2, int n) {
+    while (n--) {
+        if (*s1 > *s2)
+            return 1;
+        if (*s1 < *s2)
+            return -1;
+        s1++;
+        s2++;
+    }
+    return 0;
+}
+
+
 /*
  * stringToInt
  * @params char * str

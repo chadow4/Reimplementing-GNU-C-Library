@@ -8,7 +8,7 @@ extern char **environ;
 int parseParams(char *command, char *args[]) {
     int argLen = 0;
     int argCount = 0;
-    args[argCount] = mini_calloc(sizeof(char),1024);
+    args[argCount] = mini_calloc(sizeof(char), 1024);
     for (int i = 0; i < mini_strlen(command); i++) {
         if (command[i] == ' ') {
             args[argCount + 1] = mini_calloc(sizeof(char), 1024);
@@ -17,7 +17,7 @@ int parseParams(char *command, char *args[]) {
             argLen = 0;
         } else if (command[i] == '\n') {
             args[argCount][argLen] = '\0';
-            args[argCount+1] = NULL;
+            args[argCount + 1] = NULL;
             argCount++;
             return argCount;
         } else {
@@ -34,19 +34,17 @@ void exec(char *commands[]) {
     if (mini_strcmp(commands[0], "exit") == 0)
         mini_exit();
     if (mini_strcmp(commands[0], "mini_cd") == 0) {
-        // Check if the user provided a directory to change to
         if (commands[1] == NULL) {
             mini_printf("Error: No directory provided\n");
             return;
         }
-        // Use chdir() to change the current working directory
         if (chdir(commands[1]) != 0) {
             mini_printf("Error: Unable to change directory\n");
+            return;
         }
         return;
     }
     if (mini_strcmp(commands[0], "mini_env") == 0) {
-        // Print the environment variables
         char **env = environ;
         while (*env != NULL) {
             mini_printf(*env);
@@ -55,6 +53,25 @@ void exec(char *commands[]) {
         }
         return;
     }
+
+    if (mini_strcmp(commands[0], "mini_getenv") == 0) {
+        char **env = environ;
+        if (commands[1] == NULL) {
+            mini_printf("Error: no environnement name provided\n");
+            return;
+        }
+        int i, len = mini_strlen(commands[1]);
+        for (i = 0; env[i]; i++) {
+            if (mini_strncmp(env[i], commands[1], len) == 0 && env[i][len] == '=') {
+                mini_printf(&env[i][len+1]);
+                mini_printf("\n");
+                return;
+            }
+        }
+        mini_printf("Error: Unable to find env\n");
+        return;
+    }
+
     switch (fork()) {
         case -1:
             mini_exit();
