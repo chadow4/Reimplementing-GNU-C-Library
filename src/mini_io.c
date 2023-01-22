@@ -1,7 +1,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "mini_lib.h"
-#include <stdio.h>
 
 #define IOBUFFER_SIZE 2048
 
