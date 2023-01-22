@@ -49,6 +49,8 @@ extern int mini_strlen(char *s);
 
 extern int mini_strcmp(char *s1, char *s2);
 
+extern char *mini_strcat(char *dest, char *src, int n);
+
 extern struct my_file *mini_fopen(char *file, char mode);
 
 extern int mini_fread(void *buffer, int size_element, int number_element, MYFILE *file);
@@ -63,13 +65,13 @@ extern int mini_fputc(MYFILE *file, char c);
 
 extern int mini_fgetc(MYFILE *my_file);
 
-extern char * mini_fgets(char *buffer, int n, MYFILE *stream);
+extern char *mini_fgets(char *buffer, int n, MYFILE *stream);
 
 extern int stringToInt(char *str, int base);
 
-extern char * intToString(int num, char *str, int base);
+extern char *intToString(int num, char *str, int base);
 
-extern void mini_perror(char * message);
+extern void mini_perror(char *message);
 
 
 #endif
