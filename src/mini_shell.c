@@ -2,7 +2,9 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <stdio.h>
 
+extern char **environ;
 
 int parseParams(char *command, char *args[]) {
     int argLen = 0;
@@ -17,6 +19,7 @@ int parseParams(char *command, char *args[]) {
         } else if (command[i] == '\n') {
             args[argCount][argLen] = '\0';
             args[argCount+1] = NULL;
+            argCount++;
             return argCount;
         } else {
             args[argCount][argLen] = command[i];
@@ -31,7 +34,28 @@ int parseParams(char *command, char *args[]) {
 void exec(char *commands[]) {
     if (mini_strcmp(commands[0], "exit") == 0)
         mini_exit();
-
+    if (mini_strcmp(commands[0], "mini_cd") == 0) {
+        // Check if the user provided a directory to change to
+        if (commands[1] == NULL) {
+            mini_printf("Error: No directory provided\n");
+            return;
+        }
+        // Use chdir() to change the current working directory
+        if (chdir(commands[1]) != 0) {
+            mini_printf("Error: Unable to change directory\n");
+        }
+        return;
+    }
+    if (mini_strcmp(commands[0], "mini_env") == 0) {
+        // Print the environment variables
+        char **env = environ;
+        while (*env != NULL) {
+            mini_printf(*env);
+            mini_printf("\n");
+            env++;
+        }
+        return;
+    }
     switch (fork()) {
         case -1:
             mini_exit();
