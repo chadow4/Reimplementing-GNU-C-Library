@@ -28,11 +28,11 @@ int main(int argc, char **argv){
     }
     number++; 
 
-    if(stringToInt(argv[2])>number){
+    if(stringToInt(argv[2],10)>number){
         mini_printf(reader);
         return 0;
     }else{
-        number = number-stringToInt(argv[2]);
+        number = number-stringToInt(argv[2],10);
     }
     int j = 0;
     int compteur = 0;

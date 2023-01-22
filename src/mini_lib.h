@@ -63,7 +63,9 @@ extern int mini_fputc(MYFILE *file, char c);
 
 extern int mini_fgetc(MYFILE *my_file);
 
-extern int stringToInt(char *str);
+extern char * mini_fgets(char *buffer, int n, MYFILE *stream);
+
+extern int stringToInt(char *str, int base);
 
 extern char * intToString(int num, char *str, int base);
 

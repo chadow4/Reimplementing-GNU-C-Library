@@ -2,7 +2,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
-#include <stdio.h>
+
 
 int parseParams(char *command, char *args[]) {
     int argLen = 0;

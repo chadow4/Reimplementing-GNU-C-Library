@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
     int nb = 0;
     int j = 0;
 
-    for (int i = 0; nb < stringToInt(argv[2]) && *(reader + i) != '\0'; i++) {
+    for (int i = 0; nb < stringToInt(argv[2],10) && *(reader + i) != '\0'; i++) {
 
         *(buffer + i) = *(reader + i);
         if (*(reader + i) == '\n') {

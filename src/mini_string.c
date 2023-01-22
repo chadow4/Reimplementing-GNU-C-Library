@@ -142,10 +142,10 @@ int mini_strcmp(char *s1, char *s2) {
  * @return int
 */
 
-int stringToInt(char *str) {
+int stringToInt(char *str,int base) {
     int res = 0;
     for (int i = 0; str[i] != '\0'; ++i)
-        res = res * 10 + str[i] - '0';
+        res = res * base + str[i] - '0';
     return res;
 }
 
@@ -213,3 +213,4 @@ void mini_perror(char * message){
     write(1,err,3);
     write(1,"\n",1);
 }
+
