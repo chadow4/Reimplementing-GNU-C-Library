@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "mini_lib.h"
+#include <stdio.h>
 
 #define IOBUFFER_SIZE 2048
 
@@ -17,19 +18,19 @@ MYFILE *mini_fopen(char *file, char mode) {
     int fd;
     switch (mode) {
         case 'r':
-            fd = open(file, O_RDONLY);
+            fd = open(file, O_RDONLY, 0755);
             break;
 
         case 'w':
-            fd = open(file, O_WRONLY | O_CREAT | O_TRUNC);
+            fd = open(file, O_TRUNC | O_WRONLY | O_CREAT, 0755);
             break;
 
         case 'b':
-            fd = open(file, O_RDWR | O_CREAT | O_TRUNC);
+            fd = open(file, O_TRUNC | O_RDWR | O_CREAT, 0755);
             break;
 
         case 'a':
-            fd = open(file, O_WRONLY | O_CREAT | O_APPEND);
+            fd = open(file, O_APPEND | O_WRONLY | O_CREAT, 0755);
             break;
 
     }
@@ -220,8 +221,12 @@ void mini_exit_io() {
 
 int mini_fgetc(MYFILE *file) {
     char buf;
-    if (mini_fread(&buf, sizeof(char), 1, file) == -1) {
+    int result = mini_fread(&buf, sizeof(char), 1, file);
+    if (result == -1) {
         return -1;
+    }
+    if (result == 0) {
+        return 0;
     }
     return buf;
 }
@@ -240,3 +245,25 @@ int mini_fputc(MYFILE *file, char c) {
     return 0;
 }
 
+
+char *mini_strcat(char *dest, char *src, int n) {
+    int dest_len = mini_strlen(dest);
+    int i;
+
+    for (i = 0 ; i < n && src[i] != '\0' ; i++)
+        dest[dest_len + i] = src[i];
+    dest[dest_len + i] = '\0';
+
+    return dest;
+}
+
+char *mini_fgets(char *buffer, int n, MYFILE *stream) {
+    char read;
+    while ((read = (char)mini_fgetc(stream)) > 0 && read != '\n' && n--) {
+        mini_strcat(buffer, &read, 2);
+    }
+    if (read <= 0) {
+        return NULL;
+    }
+    return buffer;
+}
