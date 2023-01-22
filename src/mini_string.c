@@ -64,20 +64,15 @@ void mini_exit_string() {
  * @return int
 */
 
+
 int mini_scanf(char *buffer, int sizebuffer) {
     int reader = read(1, buffer, sizebuffer); // stockage du nombre de caractere lu
 
-    if (reader == sizebuffer) { 
-
-        *(buffer + sizebuffer - 1) = '\n';
-
-        char *tmp = mini_calloc(sizeof(char), 1);
-        while (*tmp != '\n') {
-            read(1, tmp, 1);
-        }
-
-        buffer[reader] = '\0';
+    if (reader == -1) {
+        mini_perror("Error using scanf: ");
+        _exit(1);
     }
+    buffer[sizebuffer-1] = '\n';
 
     return reader;
 }
