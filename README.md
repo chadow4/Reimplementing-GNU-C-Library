@@ -89,5 +89,6 @@ The project has a makefile in order to compile the library, the Test file, the S
 ## Credits : 
 
 Created by Julien SANCHEZ
+
 MakeFile : DragonKEME
 
