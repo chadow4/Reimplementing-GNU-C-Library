@@ -31,7 +31,7 @@ int parseParams(char *command, char *args[]) {
 }
 
 void exec(char *commands[]) {
-    if (mini_strcmp(commands[0], "exit") == 0)
+    if (mini_strcmp(commands[0], "mini_exit") == 0)
         mini_exit();
     if (mini_strcmp(commands[0], "mini_cd") == 0) {
         if (commands[1] == NULL) {

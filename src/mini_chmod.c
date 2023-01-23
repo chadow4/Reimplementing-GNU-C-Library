@@ -13,6 +13,7 @@ int main(int argc, char **argv) {
 
     if (chmod(path, mode) != 0) {
         mini_printf("Error: chmod\n");
+        return 1;
     }
 
     mini_printf("permissions of file changed\n");
