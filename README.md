@@ -23,6 +23,7 @@ The project has a makefile in order to compile the library, the Test file, the S
   - mini_strlen
   - mini_strcpy
   - mini_strcmp
+  - mini_strncmp
   - stringToInt (ATOI)
   - intToString (ITOA)
   - mini_perror
@@ -49,15 +50,29 @@ The project has a makefile in order to compile the library, the Test file, the S
 ###### The SHELL and the system commands use only this library !!
 
 #### List of system commands implemented : 
-- mini_touch.c ```mini_touch file```
-- mini_cp.c ``` mini_cp file1 file2```
-- mini_echo.c ```mini_echo message```
-- mini_cat.c ```mini_cat file```
-- mini_head.c ```mini_head -n nline file```
-- mini_tail.c ```mini_tail -n nline file```
-- mini_clean.c ```mini_clean file```
+- mini_touch.c ```mini_touch file``` 
+- mini_cp.c ``` mini_cp file1 file2``` 
+- mini_echo.c ```mini_echo message```  
+- mini_cat.c ```mini_cat file``` 
+- mini_head.c ```mini_head -n nline file``` 
+- mini_tail.c ```mini_tail -n nline file``` 
+- mini_clean.c ```mini_clean file``` 
 - mini_grep.c ```mini_grep word file```
-- mini_wc.c ```mini_wc file```
+- mini_wc.c ```mini_wc file```OK
+- mini_chmod ```mini_chmod permissions (octal) file```  
+- mini_quickdiff ```mini_quickdiff file1 file2``` 
+- mini_ln ```mini_ln file1 file2``` 
+- mini_ls ```mini_ls -l directory``` 
+- mini_mkdir ```mini_mkdir directory``` 
+- mini_rmdir ```mini_rmdir directory```
+- mini_rm ```mini_rm file``` 
+- mini_touch ```mini_touch file``` 
+- 
+#### List of internal commands implemented :
+- mini_cd ```mini_cd directory``` 
+- mini_getenv ``` mini_getenv env```
+- mini_env ```mini_env```  
+- mini_exit ```mini_exit``` 
 
 #### Test File : 
 - main.c
