@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall
-EXEC=mini_touch mini_echo mini_cp mini_cat mini_head mini_tail mini_clean mini_grep mini_wc mini_chmod mini_rmdir mini_rm mini_mkdir mini_ln mini_quickdiff mini_shell
+EXEC=mini_touch mini_echo mini_cp mini_cat mini_head mini_tail mini_clean mini_grep mini_wc mini_chmod mini_rmdir mini_rm mini_mkdir mini_ln mini_quickdiff mini_ls mini_mv mini_shell
 LIB=mini_io mini_string mini_memory
 
 SRCDIR=src/
