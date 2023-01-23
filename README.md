@@ -77,3 +77,20 @@ The project has a makefile in order to compile the library, the Test file, the S
 ## Credits : 
 
 Created by Julien SANCHEZ 
+
+
+task : 
+
+mini_chmod : OK
+mini_ls :
+mini_mv : ok
+mini_quickdiff : ok mais a fix
+mini_ln : ok
+mini_mkdir : ok
+mini_rm : ok
+mini_rmdir : ok 
+
+mini_export :
+mini_cd : ok
+mini_getenv : ok 
+mini_env : ok
