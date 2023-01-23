@@ -1,10 +1,10 @@
 #include "mini_lib.h"
-#include <string.h>
+#include <unistd.h>
 
 int main(int argc, char **argv) {
 
     if (argc != 3) {
-        mini_printf("Error number of parameters\n");
+        mini_printf("Error: number of arguments invalid\n");
         return 1;
     }
 
@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
     char *linesFile1 = mini_calloc(sizeof(char), 1024);
     char *linesFile2 = mini_calloc(sizeof(char), 1024);
     if (!file1 || !file2) {
-        mini_printf("Error opening files\n");
+        mini_printf("Error: opening files\n");
         return 1;
     }
 

@@ -10,7 +10,7 @@ int main(int argc, char **argv){
     char buf[BUF_SIZE];
 
     if(argc != 3){
-        mini_printf("Invalid number of arguments\n");
+        mini_printf("Error: number of arguments invalid\n");
         return -1;
     }
 

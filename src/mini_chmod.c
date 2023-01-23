@@ -4,7 +4,7 @@
 int main(int argc, char **argv) {
 
     if (argc != 3) {
-        mini_printf("Error number of arguments\n");
+        mini_printf("Error: number of arguments invalid\n");
         return 1;
     }
 
@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
     char *path = argv[2];
 
     if (chmod(path, mode) != 0) {
-        mini_printf("chmod error\n");
+        mini_printf("Error: chmod\n");
     }
 
     mini_printf("permissions of file changed\n");

@@ -6,7 +6,7 @@
 int main(int argc, char **argv) {
 
     if(argc !=2){
-        mini_printf("Error number of arguments\n");
+        mini_printf("Error: number of arguments invalid\n");
         return -1;
     }
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
         }
     }
     mini_fclose(wcFile);
-    mini_printf("Le nombre de mots dans le fichier : ");
+    mini_printf("number words in file : ");
     mini_printf(intToString(nb, str, 10));
 
     mini_exit();

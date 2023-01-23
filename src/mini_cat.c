@@ -6,7 +6,7 @@
 int main(int argc, char **argv) {
 
     if (argc != 2) {
-        mini_printf("Invalid number of arguments\n");
+        mini_printf("Error: number of arguments invalid\n");
         return -1;
     }
     MYFILE *catFile = mini_fopen(argv[1], 'r');

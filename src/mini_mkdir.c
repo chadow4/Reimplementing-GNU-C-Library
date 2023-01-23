@@ -5,7 +5,7 @@
 int main(int argc, char **argv) {
 
     if (argc != 2) {
-        mini_printf("Error number of arguments");
+        mini_printf("Error: number of arguments invalid\n");
     }
 
     if (mkdir(argv[1], 0775) == -1) {

@@ -5,7 +5,7 @@
 int main(int argc, char **argv) {
 
     if(argc != 2){
-        mini_printf("Error arguments\n");
+        mini_printf("Error: number of arguments invalid\n");
         return -1;
     }
 
