@@ -36,4 +36,3 @@ cleandir:
 
 obj :
 	mkdir $@
-# Written by kilian Lassarrade

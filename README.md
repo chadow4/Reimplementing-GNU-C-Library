@@ -1,4 +1,4 @@
-# Reimplementing GLIBC, system commands and SHELL
+# TP PROG SYSTEM
 
 ## About the Project
 
@@ -10,8 +10,6 @@ In this project, the standard library was recreated from scratch as well as syst
 ## Getting Started
 
 The project has a makefile in order to compile the library, the Test file, the SHELL file and the different system commands.
-
-
 
 #### the library contains 4 files :
 
@@ -47,7 +45,6 @@ The project has a makefile in order to compile the library, the Test file, the S
   
 - mini_lib.h
 
-###### The SHELL and the system commands use only this library !!
 
 #### List of system commands implemented : 
 - mini_touch.c ```mini_touch file``` 
@@ -58,7 +55,7 @@ The project has a makefile in order to compile the library, the Test file, the S
 - mini_tail.c ```mini_tail -n nline file``` 
 - mini_clean.c ```mini_clean file``` 
 - mini_grep.c ```mini_grep word file```
-- mini_wc.c ```mini_wc file```OK
+- mini_wc.c ```mini_wc file```
 - mini_chmod ```mini_chmod permissions (octal) file```  
 - mini_quickdiff ```mini_quickdiff file1 file2``` 
 - mini_ln ```mini_ln file1 file2``` 
@@ -67,7 +64,7 @@ The project has a makefile in order to compile the library, the Test file, the S
 - mini_rmdir ```mini_rmdir directory```
 - mini_rm ```mini_rm file``` 
 - mini_touch ```mini_touch file``` 
-- 
+
 #### List of internal commands implemented :
 - mini_cd ```mini_cd directory``` 
 - mini_getenv ``` mini_getenv env```
@@ -83,8 +80,8 @@ The project has a makefile in order to compile the library, the Test file, the S
 
 
 ### COMMANDS : 
-- Compile All FIles : ```make all```
-- Clear All FIles : ```make cleanall```
+- Compile All Files : ```make all```
+- Clear All Files : ```make cleanall```
 - Lunch Shell : ```./mini_shell```
 - Lunch TestFile : ```./test```
 
@@ -93,19 +90,3 @@ The project has a makefile in order to compile the library, the Test file, the S
 
 Created by Julien SANCHEZ 
 
-
-task : 
-
-mini_chmod : OK
-mini_ls :
-mini_mv : ok
-mini_quickdiff : ok mais a fix
-mini_ln : ok
-mini_mkdir : ok
-mini_rm : ok
-mini_rmdir : ok 
-
-mini_export :
-mini_cd : ok
-mini_getenv : ok 
-mini_env : ok
