@@ -1,4 +1,4 @@
-# REIMPLEMENTING GLIBC AND SYS COMMAND LINUX 
+# Reimplementing GNU C Library & LINUX SYSCMD + SHELL 
 
 ## About the Project
 
@@ -88,6 +88,6 @@ The project has a makefile in order to compile the library, the Test file, the S
 
 ## Credits : 
 
-Created by Julien SANCHEZ
-MakeFile : DragonKEME
+- Created by Julien SANCHEZ
+- MakeFile : DragonKEME
 
