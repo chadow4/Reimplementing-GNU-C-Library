@@ -1,4 +1,4 @@
-# Reimplementing GNU C Library & LINUX SYSCMD + SHELL 
+# Reimplementing GNU C Library & Linux SysCmd + Shell 
 
 ## About the Project
 
